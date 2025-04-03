@@ -34,7 +34,7 @@ struct trie
         Node *temp = root;
         for(int i = 0; i < s.size(); i++)
         {
-            int idx = s[i] - 'a';
+            int idx = s[i] - 'A';
             if(temp->node[idx] == NULL)
                 temp->node[idx] = new Node;
             temp = temp->node[idx];
@@ -85,7 +85,7 @@ struct trie
             count++;
         }
         count += checkPrefix(r->link);
-        int indx = s[idx] - 'a';
+        int indx = s[idx] - 'A';
         if(r->node[indx]) count += travel(s, idx + 1, r->node[indx]);
         else if(r != root) count += travel(s, idx, r->link);
         return count;
@@ -102,14 +102,14 @@ struct trie
     {
         if(idx == s.size()) return;
         resetLink(r);
-        int indx = s[idx] - 'a';
+        int indx = s[idx] - 'A';
         if(r->node[indx]) reset(s, idx + 1, r->node[indx]);
         else if(r != root) reset(s, idx, r->link);
     }
 
     int countPattern(std::string s)
     {
-        int indx = s[0] - 'a';
+        int indx = s[0] - 'A';
         if(!root->node[indx]) return 0;
         int count =  travel(s, 1, root->node[indx]);
         reset(s, 1, root->node[indx]);

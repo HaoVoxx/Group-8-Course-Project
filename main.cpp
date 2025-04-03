@@ -18,7 +18,20 @@ int main(){
     trie a;
     s = "DI";
     a.add(s);
-    s = 
-
+    s = "DIDU";
+    a.add(s);
+    s = "DIDI";
+    a.add(s);
+    s = "DU";
+    a.add(s);
+    s = "DUDUA";
+    a.add(s);
+    s = "DUADI";
+    a.add(s);
+    s = "DIDUDUADI";
+    a.preprocessing();
+    int ans = a.countPattern(s);
+    std::cout << ans << '\n';
+    a.release();
     return 0;
 }
